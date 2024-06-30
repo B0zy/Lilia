@@ -1,5 +1,3 @@
-local outline = outline or {}
-
 OUTLINE_MODE_BOTH		= 0		-- Render always
 OUTLINE_MODE_NOTVISIBLE	= 1
 OUTLINE_MODE_VISIBLE	= 2
@@ -18,6 +16,8 @@ local ScrW				= ScrW
 local ScrH				= ScrH
 local IsValid			= IsValid
 local surface			= surface
+
+module( "lia.outline", package.seeall )
 
 local List, ListSize		= {}, 0
 local RenderEnt				= NULL
@@ -38,7 +38,7 @@ local OutlineMat			= CreateMaterial( "outline", "UnlitGeneric", OutlineMatSettin
 
 local ENTS, COLOR, MODE		= 1, 2, 3
 
-function outline.Add( ents, color, mode )
+function Add( ents, color, mode )
 	
 	if ( ListSize >= 255 ) then return end				--Maximum 255 reference values
 	if ( !istable( ents ) ) then ents = { ents } end	--Support for passing Entity as first argument
